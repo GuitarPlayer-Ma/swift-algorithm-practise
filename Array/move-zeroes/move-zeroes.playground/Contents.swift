@@ -21,7 +21,6 @@ func moveZeroes2(_ nums: inout [Int]) {
             j += 1
         }
     }
-    
 }
 
 var nums = [2,1,0,3,0,5]
