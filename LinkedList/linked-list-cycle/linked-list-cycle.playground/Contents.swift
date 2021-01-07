@@ -9,8 +9,24 @@ public class ListNode {
         self.next = nil
     }
 }
+// 解法1: 利用map
+func hasCycle1(_ head: ListNode?) -> Bool {
+    var current = head
+    var map = [ListNode?]()
+    while current != nil {
+        if map.contains(where: { (node) -> Bool in
+            return current === node
+        }) {
+            return true
+        }
+        map.append(current)
+        current = current?.next
+    }
+    return false
+}
 
-func hasCycle(_ head: ListNode?) -> Bool {
+// 解法2：快慢指针
+func hasCycle2(_ head: ListNode?) -> Bool {
     if head == nil || head?.next == nil {
         return false
     }
